@@ -1,6 +1,7 @@
 
 
-![image](https://github.com/A3is/LinuxCode/assets/122292323/5147f478-358a-47ab-b82e-82b3ab48566f)
+![image](https://github.com/A3is/LinuxCode/assets/122292323/7f090d89-edc9-4bf6-9af5-b58b4212a3db)
+
 
 
 Open the user's ~/.bashrc or ~/.bash_profile file using a text editor:
