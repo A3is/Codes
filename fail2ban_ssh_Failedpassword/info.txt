@@ -1,5 +1,5 @@
 # check unsuccessful login
-grep "Failed password" /var/log/auth.log
+grep "Failed password" /var/log/auth.log     <### OR ###>     journalctl -u ssh --no-pager | grep -E "Failed password|Invalid user"
 # check successful login
 grep -E "Accepted password|Accepted publickey" /var/log/auth.log
 
