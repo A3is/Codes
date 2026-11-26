@@ -1,0 +1,40 @@
+1- Run code :
+apt update
+apt install fail2ban python3-systemd -y
+systemctl enable fail2ban
+
+2- nano /etc/fail2ban/jail.local 
+# Wrong password 5 times in 24 hours, will be blocked for 1 year.
+[DEFAULT]
+bantime  = 365d
+findtime = 24h
+maxretry = 5
+
+[sshd]
+enabled  = true
+port     = 22
+filter   = sshd
+backend  = systemd
+
+3- run code :
+fail2ban-client -t
+systemctl restart fail2ban
+systemctl status fail2ban
+
+
+4- Check setup :
+fail2ban-client get sshd maxretry
+fail2ban-client get sshd findtime
+fail2ban-client get sshd bantime
+fail2ban-client get sshd port
+fail2ban-client status
+fail2ban-client status sshd
+systemctl cat fail2ban
+grep "Ban " /var/log/fail2ban.log
+tail -f /var/log/fail2ban.log
+
+
+5- block / Unblock ip :
+fail2ban-client set sshd banip YOUR_IP(1.1.1.1)
+fail2ban-client set sshd unbanip YOUR_IP(1.1.1.1)
+
