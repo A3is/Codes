@@ -21,6 +21,7 @@ enabled  = true
 port     = 22
 filter   = sshd
 backend  = systemd
+journalmatch = _SYSTEMD_UNIT=ssh.service
 
 3- run code :
 fail2ban-client -t
