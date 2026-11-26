@@ -1,3 +1,9 @@
+# check unsuccessful login
+grep "Failed password" /var/log/auth.log
+# check successful login
+grep -E "Accepted password|Accepted publickey" /var/log/auth.log
+
+
 1- Run code :
 apt update
 apt install fail2ban python3-systemd -y
